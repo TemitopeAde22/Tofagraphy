@@ -1,0 +1,46 @@
+name: 🚀 Deploy on push master
+
+on: 
+  push:
+    branches:    
+      - master 
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+    
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: 🔨 Build Project 
+      run: |
+        npm config set legacy-peer-deps true 
+        npm install  
+        npm run build
+      env:
+        CI: false  
+    
+    - name: List output files
+      run: find build/ -print
+     
+
+    # Runs a set of commands using the runners shell
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ftp.tofagraphy.com
+        username: tofagrap
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: build/
+

@@ -1,0 +1,104 @@
+.navbarContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    position: absolute;
+    width: 100%;
+}
+
+.logo img {
+    width: 60px;
+    height: 50px;
+    /* padding-top: 10px;
+    padding-left: 50px; */
+}
+
+.desktop > ul {
+    list-style: none;
+    display: flex;
+    text-decoration: none;
+}
+
+.header1,
+.header2,
+.header3,
+.header4,
+.header5 {
+    /* color:white; */
+    padding: 0.5rem;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.menuBarIcon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbarContent {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    .desktop {
+        display: none;
+    }
+    .menuBarIcon {
+        /* top: 0;
+        left: 0;
+        transition: 1ms ease;
+        flex-direction: column;
+        cursor: pointer; */
+    }
+
+    .closeBarMenu > ul {
+        top: 20px;
+        background-color: black;
+        /* list-style: none;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        margin-top: 1.5rem;
+        margin-left: -15rem;
+        width: 20rem;
+        height: 15rem;
+        align-items: center;
+        justify-content: center;
+        line-height: 3;
+        padding: 5rem 3rem 3rem 3rem;
+        text-align: center;
+        background: #fafafa;
+        color: black;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s; */
+    }
+}
+
+@media (max-width: 600px) {
+    .navbarContent {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    .closeBarMenu > ul {
+        /* list-style: none;
+        position: fixed;
+        margin-top: 4.5rem;
+        margin-left: -17rem;
+        width: 18rem;
+        height: 20rem;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 5rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        background: black;
+        color: white; */
+    }
+}
